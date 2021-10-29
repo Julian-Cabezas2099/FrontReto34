@@ -77,6 +77,7 @@ $.ajax(
 
                                 // var idBike= json[i].id;
                                 var idBike= json[i].category.name;
+                                idd= json[i].id;
                                 var marca = json[i].brand;
                                 var modelo = json[i].year;
                                 var nombre = json[i].name;
@@ -87,9 +88,10 @@ $.ajax(
                                 $("#res").append("<td>" + modelo + "</td>");
                                 $("#res").append("<td>" + nombre + "</td>");
                                 $("#res").append("<td>" + descripcion + "</td>");
-                               $("#res").append("<td> <a id='boton' class=\"btn btn-outline-primary\">DETALLES</a></td>");
-                               $("#boton").click(()=>mostrarinfo(idBike,marca,modelo,nombre,descripcion));
-                               $("#res").append("<td> <a class=\"btn btn-outline-danger\" onclick=borrar(" +idBike+")>ELIMINAR</a> </td>");
+                               //$("#res").append("<td> <a id='boton' class=\"btn btn-outline-primary\">DETALLES</a></td>");
+                               //$("#boton").click(()=>mostrarinfo(idBike,marca,modelo,nombre,descripcion));
+                               $("#res").append("<td> <a id='boton' class=\"btn btn-outline-primary\" onclick=mostrarinfo('"+idBike+"','"+marca+"','"+modelo+"','"+nombre+"','"+descripcion+"')>DETALLE</a></td>");
+                               $("#res").append("<td> <a class=\"btn btn-outline-danger\" onclick=borrar(" +idd+")>ELIMINAR</a> </td>");
                                 
                                 $("#res").append("</tr> ");
 

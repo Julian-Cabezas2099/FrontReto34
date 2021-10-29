@@ -56,10 +56,11 @@ function consultar() {
                     
                 }
                 $("#res").append("</td>");
-                $("#res").append(
-                "<td> <a id='boton' class=\"btn btn-outline-primary\">DETALLES</a></td>"
-                );
-                $("#boton").click(() => mostrarinfo(idCategory, nombre, descripcion));
+                //$("#res").append(
+                //"<td> <a id='boton' class=\"btn btn-outline-primary\">DETALLES</a></td>"
+                //);
+                //$("#boton").click(() => mostrarinfo(idCategory, nombre, descripcion));
+                $("#res").append("<td> <a id='boton' class=\"btn btn-outline-primary\" onclick=mostrarinfo('"+idCategory+"','"+nombre+"','"+descripcion+"')>DETALLE</a></td>");
                 $("#res").append(
                 '<td> <a class="btn btn-outline-danger" onclick=borrar(' + idCategory +")>ELIMINAR</a> </td>"
                 );

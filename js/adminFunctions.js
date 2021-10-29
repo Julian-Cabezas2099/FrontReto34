@@ -71,8 +71,9 @@ $.ajax(
                                 $("#res").append("<td>" + idAdmin + "</td>");
                                 $("#res").append("<td>" + nombre + "</td>");
                                 $("#res").append("<td>" + correo + "</td>");
-                                $("#res").append("<td> <a id='boton' class=\"btn btn-outline-primary\">DETALLE</a></td>");
-                                $("#boton").click(()=>mostrarinfo(idAdmin,nombre,correo,password));
+                                //$("#res").append("<td> <a id='boton' class=\"btn btn-outline-primary\">DETALLE</a></td>");
+                                //$("#boton").click(()=>mostrarinfo(idAdmin,nombre,correo,password));
+                                $("#res").append("<td> <a id='boton' class=\"btn btn-outline-primary\" onclick=mostrarinfo('"+idAdmin+"','"+nombre+"','"+correo+"','"+password+"')>DETALLE</a></td>");
                                 $("#res").append("<td> <a class=\"btn btn-outline-danger\" onclick=borrar(" +idAdmin+")>ELIMINAR</a> </td>");
                                 $("#res").append("</tr>");
 
