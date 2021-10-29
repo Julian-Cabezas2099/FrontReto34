@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Categoria</title>
-<script src="js/funcionesCategoria.js"></script>
+<script src="js/reports.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 <link rel="stylesheet" href="bootstrap.min.css">
@@ -29,7 +29,7 @@
 		<div class="form-group">
 			<label  class="col-form-label">DESDE LA FECHA: </label>
 			<div>
-				<input  type="date" id="fechaEntrega" class="form-control">
+				<input  type="date" id="fechaInicio" class="form-control">
 			</div>
 		</div>
 		<div class="form-group">
@@ -38,6 +38,7 @@
 				<input  type="date" id="fechaEntrega" class="form-control">
 			</div>
 		</div> <br>
+		<h3 id='resultado'>k</h3>
 
         <a class="btn btn-success" onclick="consultar()">GENERAR REPORTE</a> 
         <br> <br> <br>
