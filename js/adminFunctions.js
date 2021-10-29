@@ -8,31 +8,33 @@ function insertar() {
         // let Correo = document.getElementById("idCorreo").value; 
         let pass = $("#idPassword").val();
         // let pass = document.getElementById("idPassword").value; 
-        console.log("Hola mundo");
         
-    admin = {
+        admin = {
             name: nombre,
             email: correo,
             password:pass
-        }
+        };
 
         $.ajax (
             {
                 
-                // url          : 'http://localhost:8080/api/Admin/save',
+                
                 url          : 'http://129.151.121.220:8080/api/Admin/save',
                 type         : 'POST',
-                contentType  : "application/json;charset-UTF-8",
-                dataType     : 'JSON',
                 data         :  JSON.stringify(admin),
+                contentType  : "application/json;charset-UTF-8",
+                dataType     : 'json',
+                
 
                 success      :  function(response){
                                 console.log(response);
-                                consultar();
-                                },
+                                alert("se guardo")
+                                // consultar();
+                },
                 error       :   function(xhr,status){
                                 console.log(status);
-                                }
+                                alert("hubo un error")
+                }
                             
             }
         );

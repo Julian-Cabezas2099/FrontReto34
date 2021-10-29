@@ -13,21 +13,27 @@ function consultar() {
 
                                     document.getElementById("tablaid").style.display="";
                                     for (i=0; i < respuesta.length; i++){
+
+                                        
                                         var cliente = respuesta[i].client.name;
                                         var mensaje = respuesta[i].messageText;
                                         var bicicleta = respuesta[i].bike.name;
-                                        var idbicicleta = respuesta[i].bike.name;
-                                        var idsms = respuesta[i].idMessage;
-                                        
+                                        var idsms = respuesta[i].idMessage
+
+                                        //generar id unique para cada boton de detalle
+                                        let nombreId = "botonDet"+i
+                                        let identificador = "#"+nombreId
+
+                                        let datosFila = respuesta[i]
                                         $("#res").append("<tr>");
                                         $("#res").append("<td>" + cliente + "</td>");
-                                        $("#res").append("<td>" + respuesta[i].bike.name + "</td>");
-                                        $("#res").append("<td>" + respuesta[i].messageText + "</td>");
-                                       $("#res").append("<td> <a id='boton' class=\"btn btn-outline-primary\"> DETAIL </a></td>");
-                                      //llamar por medio de jquery el accionar del boton detail
-                                       $("#boton").click(()=>mostrarinfo(idsms,cliente,bicicleta, mensaje, idbicicleta));
+                                        $("#res").append("<td>" + bicicleta + "</td>");
+                                        $("#res").append("<td>" + mensaje + "</td>");
+                                        $("#res").append("<td> <a id='"+nombreId+"' class='btn btn-outline-primary' >DETALLES</a></td>");
+                                        //Agregar evento a cada boton de detalle generado
+                                        $(identificador).click(() => mostrarinfo(datosFila));
                                         //insertar y llamar dentro de una columna por medio de JS
-                                       $("#res").append("<td> <a class=\"btn btn-outline-danger\"  onclick=borrar(" +idsms+")>DELETE MESSAGE</a> </td>");
+                                        $("#res").append("<td> <a class=\"btn btn-outline-danger\"  onclick=borrar(" +idsms+")>DELETE MESSAGE</a> </td>");
                                         console.log(respuesta[i].idMessage);
                                         $("#res").append("</tr> ");
 
@@ -46,6 +52,29 @@ function consultar() {
           );
         
         }
+function mostrarinfo(datosFila) {
+            //hacer visible el editar informacion (boton detail)
+            document.getElementById("userinformation").style.display = "";
+            document.getElementById("botoninfo").style.display = "";
+            //asignarle los valores a las cajas de editar
+            document.getElementById("idsms").value = datosFila.idMessage;
+            document.getElementById("cliente").value = datosFila.client.name;
+            document.getElementById("bicicleta").value = datosFila.bike.name;
+            document.getElementById("idBicicleta").value = datosFila.bike.id;
+            document.getElementById("messageinfo").value = datosFila.messageText;
+}
+
+// function mostrarinfo(idsms, cliente, bicicleta, mensaje, idBicicleta) {
+//         //hacer visible el editar informacion (boton detail)
+//         document.getElementById("userinformation").style.display = "";
+//         document.getElementById("botoninfo").style.display = "";
+//         //asignarle los valores a las cajas de editar
+//         document.getElementById("idsms").value = idsms;
+//         document.getElementById("cliente").value = cliente;
+//         document.getElementById("bicicleta").value = bicicleta;
+//         document.getElementById("idBicicleta").value = idBicicleta;
+//         document.getElementById("messageinfo").value = mensaje;
+// }
 
 function insertar() {
 
@@ -102,7 +131,7 @@ function borrar(deleteid) {
                     contentType  : 'application/json',
                     success      :  function(response){
                                         console.log("Se realizo el delete exitoso");
-                                        consultar();
+                                        // consultar();
         
                                     },
                     error       :   function(xhr,status){
@@ -153,22 +182,6 @@ function editarmensaje()
             );
 }
     
-
-
-function mostrarinfo(idsms, cliente, bicicleta, mensaje, idBicicleta){
-
-
-            //hacer visible el editar informacion (boton detail)
-            document.getElementById("userinformation").style.display="";
-            document.getElementById("botoninfo").style.display="";
-            //asignarle los valores a las cajas de editar
-            document.getElementById("idsms").value = idsms;
-            document.getElementById("cliente").value = cliente;
-            document.getElementById("bicicleta").value = bicicleta;
-            document.getElementById("idBicicleta").value = idBicicleta;
-            document.getElementById("messageinfo").value = mensaje;
-            
-}
 
 function actualizar() {
 
