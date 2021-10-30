@@ -22,6 +22,7 @@ function consultar() {
                                        // var idClient= json[i].idClient;
                                         //var nombre = json[i].name;  
                                         contador++;                
+
                                     }
                                     $("#resultado").val() = "TOTAL DE RESERVAS EN EL TIEMPO SELECCIONADO: "+contador;
 
