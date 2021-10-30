@@ -22,7 +22,7 @@ function insertar2() {
 
             success      :  function(response){
                                console.log(response);
-                               consultar();
+                            //    consultar();
                             },
             error       :   function(xhr,status){
                             console.log(status);

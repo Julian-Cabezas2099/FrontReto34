@@ -6,7 +6,7 @@ function insertar2() {
     var descripcion = document.getElementById("idDescripcion").value;
     console.log("Hola mundo");
     
-   categoria = {name: nombre, description: descripcion};
+    categoria = {name: nombre, description: descripcion};
     $.ajax (
         {
             
@@ -19,10 +19,12 @@ function insertar2() {
 
             success      :  function(response){
                                console.log(response);
-                               consultar();
+                               alert("Guardo");
+                            //    consultar();
                             },
             error       :   function(xhr,status){
                             console.log(status);
+                            alert("Fallo");
                             }
                         
         }
