@@ -2,7 +2,7 @@ function consultarRepClientes(){
 
     $.ajax(
         {
-            url         : 'http://localhost:8080/api/Reservation/report-clients',
+            url         : 'http://129.151.121.220:8080/api/Reservation/report-clients',
             type        : 'GET',
             dataType    : 'JSON',
             success     : function(respuesta){
@@ -37,7 +37,7 @@ function consultarConReservas() {
     // var fechaEntrega = (f2.getFullYear())+ '-' + ( f2.getMonth() + 1 ) + '-' + f2.getDate();
     $.ajax(
              {
-                url          : 'http://localhost:8080/api/Reservation/report-dates/'+fechaInicio+'/'+fechaEntrega,
+                url          : 'http://129.151.121.220:8080/api/Reservation/report-dates/'+fechaInicio+'/'+fechaEntrega,
                 type         : 'GET',
                 dataType     : 'JSON',
                 success      :  function(json){
@@ -70,7 +70,7 @@ function consultarRepVs (){
 
     $.ajax(
         {
-            url         : 'http://localhost:8080/api/Reservation/report-status',
+            url         : 'http://129.151.121.220:8080/api/Reservation/report-status',
             type        : 'GET',
             dataType    : 'JSON',
             success     : function(respuesta){
